@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit{
     }
   )
   usersList: any[];
-  localStorage;
+  // localStorage;
 
   constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {
-    this.localStorage = document.defaultView?.localStorage;
+    // this.localStorage = document.defaultView?.localStorage; // workaround para utilizar DOM com SSR ativado
     this.usersList = this.getUsers();
   };
 
@@ -44,16 +44,16 @@ export class LoginComponent implements OnInit{
     } else {
       console.log("User created successfully.");
       this.usersList.push(tempUser);
-      this.localStorage?.setItem("users", JSON.stringify(this.usersList));
+      localStorage.setItem("users", JSON.stringify(this.usersList));
     }
   }
 
   getUsers(){ // : string[]
-    const users = this.localStorage?.getItem("users");
+    const users = localStorage.getItem("users");
     if (!!users) {
       return JSON.parse(users);
     } else {
-      this.localStorage?.setItem("users", JSON.stringify([]));
+      localStorage.setItem("users", JSON.stringify([]));
       return [];
     };
   }

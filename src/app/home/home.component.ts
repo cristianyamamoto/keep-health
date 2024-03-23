@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,12 +10,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  localStorage;
   usersList: any[];
   loggedUser: {name: string, auth: boolean} | undefined;
 
-  constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {
-    this.localStorage = document.defaultView?.localStorage;
+  constructor(private router: Router) {
     this.usersList = this.getUsers();
     this.loggedUser = undefined;
   };
@@ -33,11 +30,11 @@ export class HomeComponent implements OnInit {
   };
 
   getUsers(){
-    const users = this.localStorage?.getItem("users");
+    const users = localStorage.getItem("users");
     if (!!users) {
       return JSON.parse(users);
     } else {
-      this.localStorage?.setItem("users", JSON.stringify([]));
+      localStorage.setItem("users", JSON.stringify([]));
       return [];
     };
   }

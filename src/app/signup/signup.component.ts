@@ -1,8 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-signup',
@@ -23,10 +21,8 @@ export class SignupComponent implements OnInit {
     }
   )
   usersList: any[];
-  localStorage;
 
-  constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {
-    this.localStorage = document.defaultView?.localStorage;
+  constructor(private router: Router) {
     this.usersList = this.getUsers();
   };
 
@@ -35,11 +31,11 @@ export class SignupComponent implements OnInit {
   };
 
   getUsers(){ // : string[]
-    const users = this.localStorage?.getItem("users");
+    const users = localStorage.getItem("users");
     if (!!users) {
       return JSON.parse(users);
     } else {
-      this.localStorage?.setItem("users", JSON.stringify([]));
+      localStorage.setItem("users", JSON.stringify([]));
       return [];
     };
   }
@@ -86,7 +82,7 @@ export class SignupComponent implements OnInit {
             auth: false
           };
           this.usersList.push(newUser);
-          this.localStorage?.setItem("users", JSON.stringify(this.usersList));
+          localStorage.setItem("users", JSON.stringify(this.usersList));
           alert("User created successfully!");
           this.signUpForm.reset();
         }
