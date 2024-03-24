@@ -135,16 +135,6 @@ h5,
   border: 1px solid #f9278b;
 }
 
-.field-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.3);
-}
-
 .form-control-placeholder {
   position: absolute;
   top: 2px;
@@ -155,7 +145,7 @@ h5,
   opacity: 0.6;
 }
 
-.form-control:focus + .form-control-placeholder,
+.form-control + .form-control-placeholder,
 .form-control:valid + .form-control-placeholder {
   -webkit-transform: translate3d(0, -120%, 0);
   transform: translate3d(0, -120%, 0);
@@ -165,7 +155,6 @@ h5,
   font-size: 12px;
   letter-spacing: 1px;
   color: #f9278b;
-  font-weight: 700;
 }
 
 .btn {
