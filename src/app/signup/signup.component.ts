@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
       confirm_password: new FormControl("")
     }
   )
-  usersList: any[] = this.getUsers();;
+  usersList: any[] = this.getUsers();
 
   constructor(private router: Router) { };
 

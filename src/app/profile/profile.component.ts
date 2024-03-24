@@ -15,7 +15,7 @@ import { AddressService } from '../services/address.service';
 })
 export class ProfileComponent implements OnInit {
 
-  usersList: any[] = this.getUsers();;
+  usersList: any[] = this.getUsers();
   loggedUser: {
     name: string,
     email: string,

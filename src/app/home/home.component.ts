@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  usersList: any[] = this.getUsers();;
+  usersList: any[] = this.getUsers();
   loggedUser: {name: string, auth: boolean} | undefined = undefined;
 
   constructor(private router: Router) { };
