@@ -1,0 +1,79 @@
+[
+  {
+      "id": 1,
+      "name": "Mediterranean Diet",
+      "description": "Rich in fruits, vegetables, whole grains, and olive oil.",
+      "calories": 1800,
+      "image": "assets/mediterranean.jpg"
+  },
+  {
+      "id": 2,
+      "name": "Vegetarian Diet",
+      "description": "Excludes red meat but allows fish, eggs, and dairy.",
+      "calories": 1500,
+      "image": "assets/vegetarian.jpg"
+  },
+  {
+      "id": 3,
+      "name": "Keto Diet",
+      "description": "High-fat, low-carb diet that promotes ketosis.",
+      "calories": 2000,
+      "image": "assets/keto.jpg"
+  },
+  {
+      "id": 4,
+      "name": "Paleo Diet",
+      "description": "Emphasizes whole foods and avoids processed foods.",
+      "calories": 1600,
+      "image": "assets/paleo.jpg"
+  },
+  {
+      "id": 5,
+      "name": "DASH Diet",
+      "description": "Designed to lower blood pressure and improve heart health.",
+      "calories": 1700,
+      "image": "assets/dash.jpg"
+  },
+  {
+      "id": 6,
+      "name": "Flexitarian Diet",
+      "description": "Primarily plant-based but allows occasional meat consumption.",
+      "calories": 1400,
+      "image": "assets/flexitarian.jpg"
+  },
+  {
+      "id": 7,
+      "name": "Low-Carb Diet",
+      "description": "Restricts carbohydrate intake for weight loss.",
+      "calories": 1300,
+      "image": "assets/low-carb.jpg"
+  },
+  {
+      "id": 8,
+      "name": "Intermittent Fasting",
+      "description": "Alternates between periods of eating and fasting.",
+      "calories": 0,
+      "image": "assets/fasting.jpg"
+  },
+  {
+      "id": 9,
+      "name": "Vegan Diet",
+      "description": "Excludes all animal products.",
+      "calories": 1400,
+      "image": "assets/vegan.jpg"
+  },
+  {
+      "id": 10,
+      "name": "Weight Watchers",
+      "description": "Focuses on portion control and balanced eating.",
+      "calories": 1600,
+      "image": "assets/portion.png"
+  },
+  {
+    "id": 0,
+    "name": "Custom Diet",
+    "description": "Tailored to individual preferences and needs.",
+    "calories": "1000 - 3000",
+    "image": "assets/custom.png"
+}
+]

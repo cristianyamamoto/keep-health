@@ -10,13 +10,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  usersList: any[];
-  loggedUser: {name: string, auth: boolean} | undefined;
+  usersList: any[] = this.getUsers();;
+  loggedUser: {name: string, auth: boolean} | undefined = undefined;
 
-  constructor(private router: Router) {
-    this.usersList = this.getUsers();
-    this.loggedUser = undefined;
-  };
+  constructor(private router: Router) { };
 
   ngOnInit(): void {
     this.usersList = this.getUsers();
@@ -25,7 +22,7 @@ export class HomeComponent implements OnInit {
       console.log("Redirected to login page.")
       this.router.navigate(["/login"]);
     } else {
-      console.log(`User: ${this.loggedUser.name} is logged in`);
+      console.log(`${this.loggedUser.name} is logged in`);
     }
   };
 
@@ -39,13 +36,13 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  signOut(){
-    this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    if(this.loggedUser){
-      this.loggedUser.auth = false;
-      localStorage.setItem("users", JSON.stringify(this.usersList));
-      console.log("Signed out successfully.")
-      this.router.navigate(["/login"]);
-    }
-  }
+  // signOut(){
+  //   this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
+  //   if(this.loggedUser){
+  //     this.loggedUser.auth = false;
+  //     localStorage.setItem("users", JSON.stringify(this.usersList));
+  //     console.log("Signed out successfully.")
+  //     this.router.navigate(["/login"]);
+  //   }
+  // }
 }

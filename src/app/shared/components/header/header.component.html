@@ -1,1 +1,14 @@
-<p>header works!</p>
+<header>
+  <nav id="header-nav" class="navbar navbar-default">
+      <a href="home">
+        <h1> Keep Health </h1>
+      </a>
+      <div class="navbar-header">
+        <a *ngIf="loggedUserHeader" routerLink="diet">Diets</a>
+        <a *ngIf="loggedUserHeader" routerLink="profile">Profile</a>
+        <a *ngIf="loggedUserHeader" (click)="signOut()" routerLink="">Sign Out</a>
+        <a *ngIf="!loggedUserHeader" routerLink="signup">Sign Up</a>
+        <a *ngIf="!loggedUserHeader" routerLink="login">Sign In</a>
+      </div>
+  </nav> <!-- #header-nav -->
+</header>

@@ -16,7 +16,7 @@
               </div>
             </div>
             <form action="#" class="signin-form" (ngSubmit)="signUp()" [formGroup]="signUpForm">
-              <div class="form-group mt-3">
+              <div class="form-group">
                 <input
                   id="name-field"
                   type="text"
@@ -26,7 +26,7 @@
                 >
                 <label class="form-control-placeholder" for="name-field">Name</label>
               </div>
-              <div class="form-group mt-3">
+              <div class="form-group">
                 <input
                   id="email-field"
                   type="text"
@@ -36,16 +36,56 @@
                 >
                 <label class="form-control-placeholder" for="email-field">E-mail</label>
               </div>
-              <div class="form-group mt-3">
-                <label class="date" for="birthdate-field">Birthdate</label>
-                <input
-                  id="birthdate-field"
-                  type="date"
+
+              <div class="row">
+                <div class="form-group col mt-2">
+                  <input
+                    id="weight-field"
+                    type="number"
+                    step="0.1"
+                    class="form-control"
+                    required
+                    formControlName="weight"
+                  >
+                  <label class="form-control-placeholder" for="weight-field">Weight (kg)</label>
+                </div>
+                <div class="form-group col mt-2">
+                  <input
+                    id="height-field"
+                    type="number"
+                    step="1"
+                    class="form-control"
+                    required
+                    formControlName="height"
+                  >
+                  <label class="form-control-placeholder" for="height-field">Height (cm)</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col">
+                  <label class="date" for="birthdate-field">Birthdate</label>
+                  <input
+                    id="birthdate-field"
+                    type="date"
+                    class="form-control"
+                    required
+                    formControlName="birthdate"
+                  >
+                </div>
+                <div class="form-group col">
+                  <label class="date" for="cep-field">CEP</label>
+                  <input
+                  id="cep-field"
+                  type="text"
                   class="form-control"
                   required
-                  formControlName="birthdate"
-                >
+                  formControlName="cep"
+                  placeholder="00000-000"
+                  >
+                </div>
               </div>
+
               <div class="form-group">
                 <input
                   id="password-field"
@@ -68,11 +108,12 @@
                 <label class="form-control-placeholder" for="confirm-password-field">Confirm Password</label>
                 <span toggle="#confirm-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
+
               <div class="form-group">
                 <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
               </div>
             </form>
-            <p class="text-center">Already a member? <a data-toggle="tab" href="login">Sign In</a></p>
+            <p class="text-center">Already a member? <a data-toggle="tab" routerLink="/login">Sign In</a></p>
           </div> <!-- signup-wrap -->
         </div> <!-- wrap -->
       </div> <!--  -->

@@ -1,0 +1,133 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Profile Info</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <div class="wrap">
+          <div class="img" style="background-image: url(assets/angular.jpg);"></div>
+          <div class="p-4 p-md-5">
+            <div class="d-flex">
+              <div class="w-100 mt-3">
+                <h3 class="mb-4 text-center">{{ loggedUser?.name }}'s profile</h3>
+              </div>
+            </div>
+
+            <form action="#">
+              <div class="form-group mt-4">
+                <input
+                id="name-field"
+                type="text"
+                class="form-control"
+                readonly
+                formControlName="name"
+                value="{{ loggedUser?.name }}">
+                <label class="form-control-placeholder" for="name-field">Name</label>
+              </div>
+
+              <div class="form-group mt-2">
+                <input
+                id="email-field"
+                type="text"
+                class="form-control"
+                readonly
+                formControlName="email"
+                value="{{ loggedUser?.email }}">
+                <label class="form-control-placeholder" for="email-field">E-mail</label>
+              </div>
+
+              <div class="row">
+                <div class="form-group col mt-2">
+                  <input
+                  id="weight-field"
+                  type="text"
+                  step="0.01"
+                  class="form-control"
+                  readonly
+                  formControlName="weight"
+                  value="{{ loggedUser?.weight }} kg">
+                  <label class="form-control-placeholder" for="weight-field">Weight (kg)</label>
+                </div>
+                <div class="form-group col mt-2">
+                  <input
+                  id="height-field"
+                  type="text"
+                  step="0.01"
+                  class="form-control"
+                  readonly
+                  formControlName="height"
+                  value="{{ loggedUser?.height | centimetersToMeters }} m">
+                  <label class="form-control-placeholder" for="height-field">Height (m)</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group mt-2 col">
+                  <input
+                  id="birthdate-field"
+                  type="text"
+                  class="form-control"
+                  readonly
+                  formControlName="birthdate"
+                  value="{{ loggedUser?.birthdate | date }}">
+                  <label class="form-control-placeholder" for="birthdate-field">Birthdate</label>
+                </div>
+                <div class="form-group mt-2 col">
+                  <input
+                  id="age-field"
+                  type="text"
+                  class="form-control"
+                  readonly
+                  formControlName="age"
+                  value="{{ loggedUser?.birthdate | date : 'yyyy/MM/dd' | birthdateToAge }}">
+                  <label class="form-control-placeholder" for="age-field">Age</label>
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Edit</button>
+              </div> -->
+
+              <div class="row">
+                <div class="form-group mt-2 col-8">
+                  <input
+                  id="CEP-field"
+                  type="text"
+                  class="form-control"
+                  readonly
+                  formControlName="CEP"
+                  value="{{ loggedUser?.cep }}">
+                  <label class="form-control-placeholder" for="CEP-field">CEP</label>
+                </div>
+
+                <div class="mt-2 col-4">
+                  <button type="button" (click)="searchCEP()" class="btn btn-secondary">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group mt-2">
+                <input
+                id="address-field"
+                type="text"
+                class="form-control"
+                readonly
+                formControlName="address"
+                *ngIf="address"
+                value="{{ address.logradouro }} - {{ address.bairro }} - {{ address.localidade }}/{{ address.uf }}"
+                >
+                <label class="form-control-placeholder" for="address-field" *ngIf="address">Address</label>
+              </div>
+
+            </form>
+          </div> <!-- signup-wrap -->
+        </div> <!-- wrap -->
+      </div> <!--  -->
+    </div> <!--  -->
+  </div> <!-- container -->
+
+</section>
