@@ -11,7 +11,7 @@ export class DietService {
 
   listAll(){
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.httpClient.get("../../assets/diets.json", { headers });
+    return this.httpClient.get("assets/diets.json", { headers });
   }
 
 }
