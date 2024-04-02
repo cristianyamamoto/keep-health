@@ -11,7 +11,7 @@ import { AddressService } from '../services/address.service';
   standalone: true,
   imports: [CommonModule, BirthdateToAgePipe, CentimetersToMetersPipe],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
 

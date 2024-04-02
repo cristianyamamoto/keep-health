@@ -14,7 +14,7 @@ import { AuthService } from '../services/auth.service';
     RouterLink
 ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
 

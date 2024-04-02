@@ -9,7 +9,7 @@ import { DietService } from '../services/diet.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './diet.component.html',
-  styleUrl: './diet.component.css'
+  styleUrl: './diet.component.scss'
 })
 export class DietComponent {
   diets : any = [];

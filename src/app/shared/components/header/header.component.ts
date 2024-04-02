@@ -8,7 +8,7 @@ import { AuthService } from '../../../services/auth.service';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   @Input() loggedUserHeader: any;

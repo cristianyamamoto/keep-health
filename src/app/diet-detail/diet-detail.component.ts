@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './diet-detail.component.html',
-  styleUrl: './diet-detail.component.css'
+  styleUrl: './diet-detail.component.scss'
 })
 export class DietDetailComponent implements OnInit {
   dietId: number = 0;

@@ -1,18 +1,21 @@
+@import '../../assets/_variables.scss';
+
 body {
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
+  font-family: $font-family;
+  font-size: $body-font-size;
+  line-height: $body-line-height;
   font-weight: normal;
-  background: #f8f9fd;
-  color: gray;
+  background: $background-color;
+  color: $body-color;
 }
 
 a {
-  -webkit-transition: 0.3s all ease;
-  -o-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-  color: #f9278b;
+  -webkit-transition: $link-transition;
+  -o-transition: $link-transition;
+  transition: $link-transition;
+  color: $primary-color;
 }
+
 a:hover,
 a:focus {
   text-decoration: none !important;
@@ -20,10 +23,11 @@ a:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 a:hover,
 a:active,
 a:focus {
-  color: #f9278b;
+  color: $primary-color;
   outline: none !important;
   text-decoration: none !important;
 }
@@ -38,26 +42,18 @@ h5,
 .h3,
 .h4,
 .h5 {
-  line-height: 1.5;
-  font-weight: 400;
-  font-family: "Lato", Arial, sans-serif;
-  color: #000;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  font-family: $font-family;
+  color: $heading-color;
 }
 
 .bg-primary {
-  background: #f9278b !important;
+  background: $primary-color !important;
 }
 
 .ftco-section {
   padding: 3em 0;
-}
-
-.ftco-no-pt {
-  padding-top: 0;
-}
-
-.ftco-no-pb {
-  padding-bottom: 0;
 }
 
 .heading-section {
@@ -132,17 +128,7 @@ h5,
   outline: none !important;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #f9278b;
-}
-
-.field-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.3);
+  border: 1px solid $primary-color;
 }
 
 .form-control-placeholder {
@@ -164,7 +150,7 @@ h5,
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
-  color: #f9278b;
+  color: $primary-color;
   font-weight: 700;
 }
 
@@ -174,56 +160,31 @@ h5,
   box-shadow: none !important;
   font-size: 15px;
   padding: 10px 20px;
+  color: $button-text-color !important;
 }
 .btn:hover,
 .btn:active,
 .btn:focus {
   outline: none;
 }
-.btn.btn-primary {
-  background: #f9278b !important;
-  background-image: linear-gradient(#f9278b, #fb42e6) !important;
-  border: 1px solid #f9278b !important;
-  color: #fff !important;
-  -webkit-transition: 0.3s all ease;
-  -o-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-.btn.btn-primary:hover {
-  background-image: linear-gradient(#f9278b57, #fb42e657) !important;
-  border: 1px solid #f9278b;
-  color: #f9278b;
-}
-.btn.btn-primary.btn-outline-primary {
-  border: 1px solid #f9278b;
-  background: transparent;
-  color: #f9278b;
-}
-.btn.btn-primary.btn-outline-primary:hover {
-  border: 1px solid transparent;
-  background: #f9278b;
-  color: #fff;
-}
-
+.btn.btn-primary,
 .btn.btn-secondary {
-  background: #f9278b !important;
-  background-image: linear-gradient(#f9278b, #fb42e6) !important;
-  border: 1px solid #f9278b !important;
-  -webkit-transition: 0.3s all ease;
-  -o-transition: 0.3s all ease;
-  transition: 0.3s all ease;
+  background: $primary-color !important;
+  background-image: linear-gradient($button-gradient-start, $button-gradient-end) !important;
+  border: 1px solid $button-border-color !important;
+  -webkit-transition: $link-transition;
+  -o-transition: $link-transition;
+  transition: $link-transition;
 }
-.btn.btn-secondary:hover,
-.btn.btn-secondary:focus {
+.btn.btn-primary:hover,
+.btn.btn-secondary:hover {
+  background: $primary-color !important;
+  background-image: linear-gradient($button-hover-start, $button-hover-end) !important;
+  border: 1px solid $button-border-color;
   text-decoration: none !important;
   outline: none !important;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.btn.btn-secondary:hover,
-.btn.btn-secondary:active,
-.btn.btn-secondary:focus {
-  background: #f9278b !important;
-  outline: none !important;
-  text-decoration: none !important;
-}
+
+// TODO: COPY AND ADAPT .scss FOR OTHER COMPONENTS (signup, profile...)
