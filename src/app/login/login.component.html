@@ -23,8 +23,20 @@
                   class="form-control"
                   required
                   formControlName="email"
+                  [ngClass]="{'field-border-warning': (loginForm.controls.email.dirty ||
+                  loginForm.controls.email.touched) &&
+                  loginForm.controls.email.errors}"
                 >
                 <label class="form-control-placeholder" for="email-field">E-mail</label>
+                <span
+                  class="field-warning"
+                  *ngIf="(loginForm.controls.email.dirty ||
+                  loginForm.controls.email.touched) &&
+                  loginForm.controls.email.errors &&
+                  loginForm.controls.email.errors['required']"
+                >
+                E-mail required.
+                </span>
               </div>
               <div class="form-group">
                 <input
@@ -33,9 +45,20 @@
                   class="form-control"
                   required
                   formControlName="password"
+                  [ngClass]="{'field-border-warning': (loginForm.controls.password.dirty ||
+                  loginForm.controls.password.touched) &&
+                  loginForm.controls.password.errors}"
                   >
                 <label class="form-control-placeholder" for="password-field">Password</label>
-                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                <span
+                  class="field-warning"
+                  *ngIf="(loginForm.controls.password.dirty ||
+                  loginForm.controls.password.touched) &&
+                  loginForm.controls.password.errors &&
+                  loginForm.controls.password.errors['required']"
+                >
+                Password required.
+                </span>
               </div>
               <div class="form-group">
                 <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>

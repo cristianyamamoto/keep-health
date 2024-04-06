@@ -187,4 +187,11 @@ h5,
   box-shadow: none;
 }
 
-// TODO: COPY AND ADAPT .scss FOR OTHER COMPONENTS (signup, profile...)
+.field-warning {
+  margin-left: 5px;
+  color: red;
+}
+
+.field-border-warning {
+  border-color: red;
+}

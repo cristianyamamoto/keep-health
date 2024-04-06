@@ -1,6 +1,6 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit{
 
   loginForm = new FormGroup(
     {
-      email: new FormControl(""), //  [Validators.required, ]
-      password: new FormControl("")
+      email: new FormControl("", [Validators.required, ]),
+      password: new FormControl("", [Validators.required, ])
     }
   )
   usersList: any[];

@@ -15,7 +15,7 @@
                 <h3 class="mb-4">Sign Up</h3>
               </div>
             </div>
-            <form action="#" class="signin-form" (ngSubmit)="signUp()" [formGroup]="signUpForm">
+            <form action="#" (ngSubmit)="signUp()" [formGroup]="signUpForm">
               <div class="form-group">
                 <input
                   id="name-field"
@@ -23,8 +23,20 @@
                   class="form-control"
                   required
                   formControlName="name"
+                  [ngClass]="{'field-border-warning': (signUpForm.controls.name.dirty ||
+                  signUpForm.controls.name.touched) &&
+                  signUpForm.controls.name.errors}"
                 >
                 <label class="form-control-placeholder" for="name-field">Name</label>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.name.dirty ||
+                  signUpForm.controls.name.touched) &&
+                  signUpForm.controls.name.errors &&
+                  signUpForm.controls.name.errors['required']"
+                >
+                Name field is required.
+                </span>
               </div>
               <div class="form-group">
                 <input
@@ -33,8 +45,29 @@
                   class="form-control"
                   required
                   formControlName="email"
+                  [ngClass]="{'field-border-warning': (signUpForm.controls.email.dirty ||
+                  signUpForm.controls.email.touched) &&
+                  signUpForm.controls.email.errors}"
                 >
                 <label class="form-control-placeholder" for="email-field">E-mail</label>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.email.dirty ||
+                  signUpForm.controls.email.touched) &&
+                  signUpForm.controls.email.errors &&
+                  signUpForm.controls.email.errors['required']"
+                >
+                E-mail field is required.
+                </span>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.email.dirty ||
+                  signUpForm.controls.email.touched) &&
+                  signUpForm.controls.email.errors &&
+                  signUpForm.controls.email.errors['pattern']"
+                >
+                E-mail not in a valid format.
+                </span>
               </div>
 
               <div class="row">
@@ -46,8 +79,20 @@
                     class="form-control"
                     required
                     formControlName="weight"
+                    [ngClass]="{'field-border-warning': (signUpForm.controls.weight.dirty ||
+                    signUpForm.controls.weight.touched) &&
+                    signUpForm.controls.weight.errors}"
                   >
                   <label class="form-control-placeholder" for="weight-field">Weight (kg)</label>
+                  <span
+                    class="field-warning"
+                    *ngIf="(signUpForm.controls.weight.dirty ||
+                    signUpForm.controls.weight.touched) &&
+                    signUpForm.controls.weight.errors &&
+                    signUpForm.controls.weight.errors['required']"
+                  >
+                  Weight field is required.
+                  </span>
                 </div>
                 <div class="form-group col mt-2">
                   <input
@@ -57,24 +102,48 @@
                     class="form-control"
                     required
                     formControlName="height"
+                    [ngClass]="{'field-border-warning': (signUpForm.controls.height.dirty ||
+                    signUpForm.controls.height.touched) &&
+                    signUpForm.controls.height.errors}"
                   >
                   <label class="form-control-placeholder" for="height-field">Height (cm)</label>
+                  <span
+                    class="field-warning"
+                    *ngIf="(signUpForm.controls.height.dirty ||
+                    signUpForm.controls.height.touched) &&
+                    signUpForm.controls.height.errors &&
+                    signUpForm.controls.height.errors['required']"
+                  >
+                  Height field is required.
+                  </span>
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group col">
-                  <label class="date" for="birthdate-field">Birthdate</label>
+                  <label class="static-label" for="birthdate-field">Birthdate</label>
                   <input
                     id="birthdate-field"
                     type="date"
                     class="form-control"
                     required
                     formControlName="birthdate"
+                    [ngClass]="{'field-border-warning': (signUpForm.controls.birthdate.dirty ||
+                    signUpForm.controls.birthdate.touched) &&
+                    signUpForm.controls.birthdate.errors}"
                   >
+                  <span
+                    class="field-warning"
+                    *ngIf="(signUpForm.controls.birthdate.dirty ||
+                    signUpForm.controls.birthdate.touched) &&
+                    signUpForm.controls.birthdate.errors &&
+                    signUpForm.controls.birthdate.errors['required']"
+                  >
+                  Birthdate field is required.
+                  </span>
                 </div>
                 <div class="form-group col">
-                  <label class="date" for="cep-field">CEP</label>
+                  <label class="static-label" for="cep-field">CEP</label>
                   <input
                   id="cep-field"
                   type="text"
@@ -82,7 +151,28 @@
                   required
                   formControlName="cep"
                   placeholder="00000-000"
+                  [ngClass]="{'field-border-warning': (signUpForm.controls.cep.dirty ||
+                  signUpForm.controls.cep.touched) &&
+                  signUpForm.controls.cep.errors}"
                   >
+                  <span
+                      class="field-warning"
+                      *ngIf="(signUpForm.controls.cep.dirty ||
+                      signUpForm.controls.cep.touched) &&
+                      signUpForm.controls.cep.errors &&
+                      signUpForm.controls.cep.errors['required']"
+                    >
+                    CEP field is required.
+                  </span>
+                  <span
+                    class="field-warning"
+                    *ngIf="(signUpForm.controls.cep.dirty ||
+                    signUpForm.controls.cep.touched) &&
+                    signUpForm.controls.cep.errors &&
+                    (signUpForm.controls.cep.errors['pattern'] || signUpForm.controls.cep.errors['maxlength'])"
+                  >
+                  CEP not in a valid format.
+                  </span>
                 </div>
               </div>
 
@@ -93,9 +183,29 @@
                   class="form-control"
                   required
                   formControlName="password"
-                  >
+                  [ngClass]="{'field-border-warning': (signUpForm.controls.password.dirty ||
+                  signUpForm.controls.password.touched) &&
+                  signUpForm.controls.cep.errors}"
+                >
                 <label class="form-control-placeholder" for="password-field">Password</label>
-                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.password.dirty ||
+                  signUpForm.controls.password.touched) &&
+                  signUpForm.controls.password.errors &&
+                  signUpForm.controls.password.errors['required']"
+                >
+                Choose a password!
+                </span>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.password.dirty ||
+                  signUpForm.controls.password.touched) &&
+                  signUpForm.controls.password.errors &&
+                  signUpForm.controls.password.errors['minlength']"
+                >
+                Your password must have at least 4 digits.
+                </span>
               </div>
               <div class="form-group">
                 <input
@@ -104,9 +214,20 @@
                   class="form-control"
                   required
                   formControlName="confirm_password"
-                  >
+                  [ngClass]="{'field-border-warning': (signUpForm.controls.confirm_password.dirty ||
+                  signUpForm.controls.confirm_password.touched) &&
+                  signUpForm.controls.confirm_password.errors}"
+                >
                 <label class="form-control-placeholder" for="confirm-password-field">Confirm Password</label>
-                <span toggle="#confirm-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                <span
+                  class="field-warning"
+                  *ngIf="(signUpForm.controls.confirm_password.dirty ||
+                  signUpForm.controls.confirm_password.touched) &&
+                  signUpForm.controls.confirm_password.errors &&
+                  signUpForm.controls.confirm_password.errors['required']"
+                >
+                Confirm your password!
+                </span>
               </div>
 
               <div class="form-group">

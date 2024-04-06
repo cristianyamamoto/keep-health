@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
@@ -13,14 +14,27 @@ export class SignupComponent implements OnInit {
 
   signUpForm = new FormGroup(
     {
-      name: new FormControl(""),
-      email: new FormControl(""),
-      weight: new FormControl(""),
-      height: new FormControl(""),
-      birthdate: new FormControl(""),
-      cep: new FormControl(""),
-      password: new FormControl(""),
-      confirm_password: new FormControl("")
+      name: new FormControl("", [Validators.required, ]),
+      email: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+      ]),
+      weight: new FormControl("", [Validators.required, ]),
+      height: new FormControl("", [Validators.required, ]),
+      birthdate: new FormControl("", [Validators.required, ]),
+      cep: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^([0-9]{5}-[0-9]{3})|([0-9]{8})$"),
+        Validators.maxLength(9)
+      ]),
+      password: new FormControl("", [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      confirm_password: new FormControl("", [
+        Validators.required,
+        Validators.minLength(4)
+      ])
     }
   )
   usersList: any[] = this.getUsers();
