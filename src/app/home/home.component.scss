@@ -39,3 +39,50 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 479px) {
+  h2 {
+    font-size: 2.8em;
+    padding: 15px;
+  }
+  .username {
+    font-size: 2em;
+    padding: 5px;
+  }
+  img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  h2 {
+    font-size: calc(100% + 4vw);
+    padding: 15px;
+  }
+  .username {
+    font-size: calc(100% + 2vw);
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  h2 {
+    font-size: calc(100% + 5vw);
+    padding: 15px;
+  }
+  .username {
+    font-size: calc(100% + 2.5vw);
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 7em;
+    padding: 25px;
+  }
+  .username {
+    font-size: 4em;
+    padding: 15px;
+  }
+}
