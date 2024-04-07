@@ -32,12 +32,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.usersList = this.getUsers();
     this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    if(!this.loggedUser ) {
-      console.log("Redirected to login page.")
-      this.router.navigate(["/login"]);
-    } else {
-      console.log("Profile page.")
-    }
+    // if(!this.loggedUser ) {
+    //   console.log("Redirected to login page.")
+    //   this.router.navigate(["/login"]);
+    // } else {
+    //   console.log("Profile page.")
+    // }
   };
 
   getUsers(){

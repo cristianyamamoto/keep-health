@@ -22,7 +22,7 @@ import { DropdownModule } from 'primeng/dropdown';
 })
 export class HomeComponent implements OnInit {
 
-  usersList: any[] = this.getUsers();
+  // usersList: any[] = this.getUsers();
   loggedUser: {name: string, auth: boolean} | undefined = undefined;
   visible: boolean = false;
   exerciseForm = new FormGroup(
@@ -55,27 +55,27 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { };
 
   ngOnInit(): void {
-    this.usersList = this.getUsers();
-    this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    if(!this.loggedUser ) {
-      console.log("Redirected to login page.")
-      this.router.navigate(["/login"]);
-    } else {
-      console.log(`${this.loggedUser.name} is logged in`);
-    }
+    // this.usersList = this.getUsers();
+    // this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
+    // if(!this.loggedUser ) {
+    //   console.log("Redirected to login page.")
+    //   this.router.navigate(["/login"]);
+    // } else {
+    //   console.log(`${this.loggedUser.name} is logged in`);
+    // }
     this.exercises = this.getExercises();
     this.filteredExercises = this.exercises;
   };
 
-  getUsers(){
-    const users = localStorage.getItem("users");
-    if (!!users) {
-      return JSON.parse(users);
-    } else {
-      localStorage.setItem("users", JSON.stringify([]));
-      return [];
-    };
-  }
+  // getUsers(){
+  //   const users = localStorage.getItem("users");
+  //   if (!!users) {
+  //     return JSON.parse(users);
+  //   } else {
+  //     localStorage.setItem("users", JSON.stringify([]));
+  //     return [];
+  //   };
+  // }
 
   // signOut(){
   //   this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);

@@ -4,6 +4,7 @@ import { DietComponent } from './diet/diet.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { authGuard } from './shared/guards/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
@@ -14,7 +15,8 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'login',
@@ -29,10 +31,12 @@ export const routes: Routes = [
     children: [
       { path: '', component: DietComponent },
       { path: ':id', component: DietDetailComponent },
-    ]
+    ],
+    canActivate: [authGuard]
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [authGuard]
   },
 ];

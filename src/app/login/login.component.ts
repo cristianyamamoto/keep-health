@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.createTempUser();
-    this.usersList = this.getUsers();
-    const logged = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    if(logged) {
-      console.log("Redirected to home page.")
-      this.router.navigate([""]);
-    }
+    // this.usersList = this.getUsers();
+    // const logged = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
+    // if(logged) {
+    //   console.log("Redirected to home page.")
+    //   this.router.navigate([""]);
+    // }
   };
 
   createTempUser(){

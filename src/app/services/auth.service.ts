@@ -32,4 +32,19 @@ export class AuthService {
     }
   }
 
+  getUsers(){
+    const users = localStorage.getItem("users");
+    if (!!users) {
+      return JSON.parse(users);
+    } else {
+      localStorage.setItem("users", JSON.stringify([]));
+      return [];
+    };
+  }
+
+  loggedUser(){
+    const users = this.getUsers();
+    return users.find((user: { auth: boolean; }) => user.auth == true);
+  }
+
 }
