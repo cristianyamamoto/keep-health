@@ -17,7 +17,6 @@ export const dietGuard: CanActivateChildFn = (childRoute, state) => {
       diets = [];
     }
     if (diets.find((diet: { id: number; }) => diet.id === Number(childRoute.params["id"]))) {
-      console.log(`Diet ID ${childRoute.params["id"]}.`)
       return true;
     }
     router.navigate([""]);

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -39,13 +39,13 @@ export class SignupComponent implements OnInit {
   )
   usersList: any[] = this.getUsers();
 
-  constructor(private router: Router) { };
+  constructor() { };
 
   ngOnInit(): void {
     this.usersList = this.getUsers();
   };
 
-  getUsers(){ // : string[]
+  getUsers(){
     const users = localStorage.getItem("users");
     if (!!users) {
       return JSON.parse(users);

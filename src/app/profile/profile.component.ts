@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { response } from 'express';
 import { BirthdateToAgePipe } from '../pipes/birthdate-to-age.pipe';
 import { CentimetersToMetersPipe } from '../pipes/centimeters-to-meters.pipe';
 import { AddressService } from '../services/address.service';
@@ -27,17 +25,11 @@ export class ProfileComponent implements OnInit {
   } | undefined = undefined;
   address: any | undefined = undefined;
 
-  constructor(private router: Router, private addressService: AddressService) { };
+  constructor(private addressService: AddressService) { };
 
   ngOnInit(): void {
     this.usersList = this.getUsers();
     this.loggedUser = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    // if(!this.loggedUser ) {
-    //   console.log("Redirected to login page.")
-    //   this.router.navigate(["/login"]);
-    // } else {
-    //   console.log("Profile page.")
-    // }
   };
 
   getUsers(){
@@ -55,7 +47,6 @@ export class ProfileComponent implements OnInit {
       {
         next: (response) => {
           this.address = response;
-          console.log(response);
         },
         error: (error) => {
           console.error(error);

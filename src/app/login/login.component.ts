@@ -1,5 +1,5 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -25,21 +25,13 @@ export class LoginComponent implements OnInit{
     }
   )
   usersList: any[];
-  // localStorage;
 
   constructor(private router: Router, private authService: AuthService) {
-    // this.localStorage = document.defaultView?.localStorage; // workaround para utilizar DOM com SSR ativado
     this.usersList = this.getUsers();
   };
 
   ngOnInit(): void {
     this.createTempUser();
-    // this.usersList = this.getUsers();
-    // const logged = this.usersList.find((user: { auth: boolean; }) => user.auth == true);
-    // if(logged) {
-    //   console.log("Redirected to home page.")
-    //   this.router.navigate([""]);
-    // }
   };
 
   createTempUser(){
@@ -54,15 +46,14 @@ export class LoginComponent implements OnInit{
       auth: false
     };
     if (this.authService.authenticateEmail(tempUser.email, this.usersList)) {
-      // console.log("User already exists.");
+      return; // user already created
     } else {
-      console.log("User created successfully.");
       this.usersList.push(tempUser);
       localStorage.setItem("users", JSON.stringify(this.usersList));
     }
   }
 
-  getUsers(){ // : string[]
+  getUsers(){
     const users = localStorage.getItem("users");
     if (!!users) {
       return JSON.parse(users);
@@ -97,35 +88,7 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  // // Criado um service (auth.service) para os métodos de autenticação com intuito de criar um event emitter para atualizar o header caso o usuário tenha logado (passar informações entre componentes não relacionados).
-  // authenticateEmail(email: string | null | undefined) {
-  //   this.usersList = this.getUsers();
-  //   return this.usersList.find((user: {
-  //     email: string | null | undefined;
-  //   }) => {
-  //     if(user.email == email) {
-  //       return user;
-  //     }
-  //     return undefined;
-  //   });;
-  // }
-
-  // authenticatePassword(user: {
-  //   auth: boolean;
-  //   password: string;
-  // }, password: string | null | undefined) {
-  //   if(user.password == password){
-  //     user.auth = true;
-  //     localStorage.setItem("users", JSON.stringify(this.usersList));
-  //     this.router.navigate([""]);
-  //     console.log("You're logged in.");
-  //   } else {
-  //     alert("Incorrect Password!");
-  //   }
-  // }
-
   forgotPassword() {
-    console.log("forgotPassword() called");
     const email = this.loginForm.value.email;
     if (email) {
       let user = this.usersList.find((user: { email: string | null | undefined; }) => user.email == email);
